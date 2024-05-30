@@ -1,8 +1,23 @@
 /* GLOBAL STYLES */
 
 :root {
+    /* Colors */
     --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
+    --primary-gradient: linear-gradient(220.55deg, #bc0b3a 0%, #19087E 100%);
+    
+    /* Spacing */
     --gap-m: 4rem;
+    --gap-s: 2rem;
+    --gap-xs: 1rem;
+
+    /* Typography*/
+    --text-m: 2rem;
+    --text-l: 5rem;
+    --text-xl: 8rem;
+
+    /* Misc */
+    --radius: 2rem;
 }
 
 *, *::before, *::after {
@@ -15,6 +30,10 @@ html {
     font-size: 62.5%;
 }
 
+button {
+    border: none;
+}
+
 body {
     color: var(--white);
     background-color: hsl(0, 0%, 0%);
@@ -22,7 +41,22 @@ body {
 }
 
 section {
+    padding: var(--gap-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-m);
+}
 
+.container {
+    padding: var(--gap-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-m);
+    align-items: center;
+}
+
+.overlay {
+    border-image: linear-gradient(hsla(0, 0%, 0%, .1), hsla(0, 0%, 0%, .7)) 1 fill;
 }
 
 /* TYPOGRAPHY */
@@ -31,14 +65,39 @@ section {
     font-family: 'Satoshi';
     src: url("fonts/Satoshi-Variable.ttf") format("truetype");
     font-weight: 100 900;
-    font-stretch: 75% 125%;
 }
 
 p, a {
-    font-size: 2rem;
+    font-size: var(--text-m);
 }
 
 a {
+    color: var(--white);
+    cursor: pointer;
+}
+
+h1 {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    line-height: 1;
+}
+
+/* BUTTONS */
+
+.btn {
+    padding: var(--gap-s) var(--gap-m);
+    font-size: var(--text-m);
+    border-radius: .5em;
+    cursor: pointer;
+    transition: transform .3s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+.btn--primary {
+    background: var(--primary-gradient);
     color: var(--white);
 }
 
@@ -83,4 +142,21 @@ header nav a::after {
 
 header nav a:hover::after {
     width: 100%;
+}
+
+/* HERO */
+
+.hero__content-wrapper {
+    background: url('images/main-background.webp');
+    background-size: cover;
+    background-position: 50%;
+    border-radius: var(--radius);
+    text-align: center;
+    padding-block: 20rem;
+    gap: 5rem;
+}
+
+.hero__title > span {
+    font-size: var(--text-l);
+    font-weight: 500;
 }
