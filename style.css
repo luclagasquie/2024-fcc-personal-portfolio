@@ -109,6 +109,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: var(--gap-m);
+    position: sticky;
 }
 
 header img:first-of-type {
@@ -145,6 +146,10 @@ header nav a:hover::after {
 }
 
 /* HERO */
+
+.hero {
+    padding-block-start: 0;
+}
 
 .hero__content-wrapper {
     background: url('images/main-background.webp');
