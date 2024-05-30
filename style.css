@@ -1,4 +1,4 @@
-/* GLOBAL SETTINGS */
+/* GLOBAL STYLES */
 
 :root {
     --white: hsl(0, 0%, 100%);
@@ -49,8 +49,10 @@ header {
     justify-content: space-between;
     padding: var(--gap-m);
 }
+
 header img:first-of-type {
     width: 7rem;
+    cursor: pointer;
 }
 
 header ul {
@@ -59,14 +61,14 @@ header ul {
     gap: var(--gap-m);
 }
 
-header a {
+header nav a {
     position: relative;
     text-decoration: none;
     font-weight: 700;
     
 }
 
-header a::after {
+header nav a::after {
     content: '';
     height: 1px;
     width: 0%;
@@ -77,6 +79,6 @@ header a::after {
     transition: all .3s ease-in-out;
 }
 
-header a:hover::after {
+header nav a:hover::after {
     width: 100%;
 }
