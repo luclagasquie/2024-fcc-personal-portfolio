@@ -63,7 +63,7 @@ section {
     gap: var(--gap-m);
 }
 
-figure, img {
+figure {
     border-radius: var(--radius);
     overflow: hidden;
 }
@@ -128,13 +128,15 @@ h3 {
 
 /* HEADER */
 
-header {
+#navbar {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: var(--gap-m);
+    padding: var(--gap-s) var(--gap-m);
     position: sticky;
+    top: 0;
+    background-color: var(--black);
 }
 
 header img:first-of-type {
