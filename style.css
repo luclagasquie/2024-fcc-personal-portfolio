@@ -5,8 +5,11 @@
     --white: hsl(0, 0%, 100%);
     --black: hsl(0, 0%, 0%);
     --primary-gradient: linear-gradient(220.55deg, hsl(0, 0%, 15%) 0%, hsl(0, 0%, 5%) 100%);
+    --secondary-gradient: linear-gradient(220.55deg, hsl(0, 0%, 75%) 0%, hsl(0, 0%, 30%) 100%);
     
     /* Spacing */
+    --gap-xl: 10rem;
+    --gap-l: 6rem;
     --gap-m: 4rem;
     --gap-s: 2rem;
     --gap-xs: 1rem;
@@ -28,6 +31,7 @@
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 button {
@@ -44,14 +48,24 @@ section {
     padding: var(--gap-m);
     display: flex;
     flex-direction: column;
-    gap: var(--gap-m);
+    gap: var(--gap-xl);
 }
 
 .container {
-    padding: var(--gap-m);
     display: flex;
     flex-direction: column;
     gap: var(--gap-m);
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-m);
+}
+
+figure, img {
+    border-radius: var(--radius);
+    overflow: hidden;
 }
 
 .overlay {
@@ -77,6 +91,18 @@ a {
 
 h1 {
     font-size: var(--text-xl);
+    font-weight: 800;
+    line-height: 1;
+}
+
+h2 {
+    font-size: var(--text-l);
+    font-weight: 800;
+    line-height: 1;
+}
+
+h3 {
+    font-size: calc(var(--text-l) * 0.8);
     font-weight: 800;
     line-height: 1;
 }
@@ -157,6 +183,7 @@ header nav a:hover::after {
     border-radius: var(--radius);
     text-align: center;
     padding-block: 20rem;
+    padding-inline: var(--gap-m);
     gap: 5rem;
     align-items: center;
 }
@@ -168,8 +195,56 @@ header nav a:hover::after {
 
 /* PROJECTS */
 
+.projects__intro {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--gap-s);
+}
+
+.projects__intro__title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-s);
+}
+
+.projects__intro__title-wrapper p {
+    order: -1;
+}
+
+.projects__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+}
+
+.projects__content-wrapper {
+    display: flex;
+    gap: var(--gap-s);
+    align-items: flex-end;
+}
+
+.projects__content-wrapper h3 {
+    position: relative;
+}
+
+.projects__content-wrapper h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: .2em;
+    background: var(--secondary-gradient);
+    z-index: -1;
+}
+
 .projects__media-wrapper figure {
     aspect-ratio: 4 / 3;
+    transition: transform .3s ease-in-out;
+}
+
+.projects__media-wrapper figure:hover {
+    transform: scale(0.95);
 }
 
 .projects__media-wrapper figure img {
