@@ -15,9 +15,9 @@
     --gap-xs: 1rem;
 
     /* Typography*/
-    --text-m: 2rem;
-    --text-l: 5rem;
-    --text-xl: 8rem;
+    --text-m: clamp(1.8rem, 0.191vw + 1.739rem, 2rem);
+    --text-l: clamp(2.5rem, 2.39vw + 1.735rem, 5rem);
+    --text-xl: clamp(3rem, 4.78vw + 1.47rem, 8rem);
 
     /* Misc */
     --radius: 2rem;
@@ -49,6 +49,8 @@ section {
     display: flex;
     flex-direction: column;
     gap: var(--gap-xl);
+    max-width: 1366px;
+    margin: auto;
 }
 
 .container {
@@ -137,6 +139,8 @@ h3 {
     position: sticky;
     top: 0;
     background-color: var(--black);
+    max-width: 1366px;
+    margin: auto
 }
 
 header img:first-of-type {
@@ -175,7 +179,7 @@ header nav a:hover::after {
 /* HERO */
 
 .hero {
-    padding-block-start: 0;
+    padding-block-start: var(--gap-s);
 }
 
 .hero__content-wrapper {
@@ -252,4 +256,71 @@ header nav a:hover::after {
 .projects__media-wrapper figure img {
     width: 100%;
     height: 100%;
+}
+
+/* CONTACT */
+
+#contact > .container {
+    background-color: var(--white);
+    color: var(--black);
+    padding: var(--gap-m);
+    border-radius: var(--radius);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#contact h2 {
+    font-size: calc(var(--text-l) * 0.6);
+}
+
+#contact ul {
+    list-style: none;
+    display: flex;
+    gap: var(--gap-s);
+}
+
+#contact a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* RESPONSIVE */ 
+
+@media screen and (max-width:990px) {
+
+    #navbar {
+        flex-direction: column;
+        gap: var(--gap-s);
+    }
+
+    .projects__grid {
+        grid-template-columns: repeat(1, minmax(0,1fr));
+    }
+
+    #contact > .container {
+        flex-direction: column;
+    }
+
+    .projects__content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: calc(var(--gap-s) * 0.5);
+    }
+
+    .projects__intro {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--gap-m);
+    }
+    
+    .projects__intro__title-wrapper {
+        align-items: center;
+    }
 }
